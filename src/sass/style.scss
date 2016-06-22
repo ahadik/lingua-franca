@@ -1,0 +1,11 @@
+@import 'settings/_all';
+@import 'objects/_all';
+@import 'utilities/_all';
+
+body {
+  background: color('neutral-white', 20);
+}
+
+* {
+  box-sizing: border-box;
+}

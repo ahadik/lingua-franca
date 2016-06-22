@@ -1,0 +1,17 @@
+//------------------------------
+//
+// Baseline Spacing
+//
+//------------------------------
+
+@function br($baseline-rows) {
+  @return ($baseline-rows*12)/16+rem;
+}
+
+$spacing-1: br(1);
+$spacing-2: br(2);
+$spacing-3: br(3);
+$spacing-4: br(4);
+$spacing-5: br(5);
+$spacing-6: br(6);
+$spacing-10: br(10);

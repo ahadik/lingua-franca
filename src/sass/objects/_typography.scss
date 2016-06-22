@@ -1,0 +1,83 @@
+//------------------------------
+//
+// IBM Typography
+//
+// Base typographic styles without imposing
+// too many opinions on style.
+//
+//------------------------------
+
+html, 
+input, 
+select, 
+textarea {
+  font-family: 'Lato', sans-serif;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-size: 1em;
+  line-height: 1.5;
+  color: color('gray', 80);
+  -webkit-font-smoothing: antialiased;
+}
+
+// Header Styles //
+h1, 
+h2, 
+h3, 
+h4 {
+  text-rendering: optimizeLegibility;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.369em;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+h2 {
+  font-size: 1.777em;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+h3 {
+  font-size: 1.333em;
+  font-weight: 400;
+}
+h4 {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+/* Reset paragraph bottom margins */
+p {
+  margin: 0 0 0 0;
+}
+
+/* Create a line break between subsequent paragaphs,
+ * except for the last child */
+p + p {
+  margin-bottom: $spacing-2;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Create a line break between subsequent Sub-heads + paragaphs,
+ * except for the last child */
+h4 + p {
+  margin-bottom: $spacing-2;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  cursor: pointer;
+}

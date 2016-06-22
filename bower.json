@@ -1,0 +1,20 @@
+{
+  "name": "TemporaryName",
+  "main": "index.js",
+  "version": "0.0.0",
+  "authors": [
+    "Alexander Hadik"
+  ],
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
