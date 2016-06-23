@@ -1,0 +1,22 @@
+.header {
+	height: $header--height;
+	position: absolute;
+	top: 0;
+	transition: height .4s;
+	width: 100%;
+	background: $blue;
+	padding: 12px;
+	box-sizing: border-box;
+
+	&#{&}--open {
+		height: 100%;
+	}
+
+	&__title {
+		color: #fff;
+	}
+
+	&__info {
+
+	}
+}

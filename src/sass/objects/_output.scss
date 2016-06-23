@@ -1,0 +1,10 @@
+.translation-output {
+	align-self: flex-start;
+	height: 0;
+	transition: height 1s;
+	width: 100%;
+
+	&.open {
+		height: 75%;
+	}
+}

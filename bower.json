@@ -1,5 +1,5 @@
 {
-  "name": "TemporaryName",
+  "name": "LinguaFranca",
   "main": "index.js",
   "version": "0.0.0",
   "authors": [
@@ -14,7 +14,8 @@
     "tests"
   ],
   "dependencies": {
+    "d3": "3.5.5",
+    "d3-tip": "^0.6.7"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

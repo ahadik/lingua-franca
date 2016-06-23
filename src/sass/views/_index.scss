@@ -1,0 +1,18 @@
+body {
+	margin: 0;
+}
+
+.translation {
+	bottom: 0;
+	display: flex;
+	flex-flow: row wrap;
+	position: absolute;
+	top: $header--height;
+	width: 100%;
+}
+
+.translate-text__measure {
+	visibility: hidden;
+	font-family: sans-serif;
+	font-size: 1em;
+}

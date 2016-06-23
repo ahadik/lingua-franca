@@ -1,9 +1,22 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8">
+		<script src="/bower_components/d3/d3.min.js"></script>
+		<script src="/bower_components/d3-tip/index.js"></script>
 		<script src="js/script.js" charset="utf-8"></script>
 	</head>
 	<body>
-		<h2>Hello World</h2>
+		<header class="header">
+			<h1 class="header__title">Lingua Franca</h1>
+			<div class="header__info"></div>
+			<section class="header--expanded-info"></section>
+		</header>
+		<section class="translation">
+			<section id="translationGraph" class="translation-output"></section>
+			<section class="translation-input">
+				<input id="translationTextField" class="translation-input__field" type="text" />
+				<button id="translationTextSubmit" action="submit">Translate</button>
+			</section>
+		</section>
 	</body>
 </html>

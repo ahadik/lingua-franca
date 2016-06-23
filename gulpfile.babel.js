@@ -43,6 +43,7 @@ var dirs = {
       ]
     }
   },
+  'public' : 'public/',
   'sass': 'src/sass/**/*.scss',
   'images': {'imgs': 'src/imgs/**/*', 'icons' : 'src/icons/**/*'},
   'html': 'src/**/*.html'
