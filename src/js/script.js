@@ -14,11 +14,13 @@ var createGraph = (data) => {
 	var maxbin = 100;
 	var numbins = (maxbin - minbin) / binsize;
 
-	// whitespace on either side of the bars in units of MPG
+	var availableWidth = window.innerWidth*.6;
+	var availableHeight = window.innerHeight*.6;
+
 	var binmargin = .2; 
 	var margin = {top: 10, right: 30, bottom: 50, left: 60};
-	var width = 450 - margin.left - margin.right;
-	var height = 250 - margin.top - margin.bottom;
+	var width = availableWidth - margin.left - margin.right;
+	var height = availableHeight - margin.top - margin.bottom;
 
 	// Set the limits of the x axis
 	var xmin = minbin - 1
@@ -77,6 +79,7 @@ var createGraph = (data) => {
 	var svg = d3.select("#translationGraph").append("svg")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
+		.attr("class", "translation-output__graph")
 		.append("g")
 		.attr("transform", "translate(" + margin.left + "," + 
 						margin.top + ")");
@@ -84,10 +87,10 @@ var createGraph = (data) => {
 	svg.call(tip);
 
 	// set up the bars
-	var bar = svg.selectAll(".bar")
+	var bar = svg.selectAll(".translation-output__bar")
 		.data(histdata)
 		.enter().append("g")
-		.attr("class", "bar")
+		.attr("class", "translation-output__bar")
 		.attr("transform", function(d, i) { return "translate(" + 
 			 x2(i * binsize + minbin) + "," + y(d.numlangs) + ")"; })
 		.on('mouseover', tip.show)

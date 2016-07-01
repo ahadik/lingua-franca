@@ -4,8 +4,11 @@
 	top: 0;
 	transition: height .4s;
 	width: 100%;
+	padding-left:10%;
+	padding-right: 10%;
 	background: $blue;
-	padding: 12px;
+	padding-top: 12px;
+	padding-bottom: 12px;
 	box-sizing: border-box;
 
 	&#{&}--open {
