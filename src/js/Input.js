@@ -1,6 +1,7 @@
 export default class Input{
 	constructor(textField, submitButton, callback){
 		submitButton.addEventListener('click', (e) => {
+			submitButton.classList.add('translation-input__button--loading');
 			let that = this;
 			e.preventDefault();
 
@@ -11,7 +12,6 @@ export default class Input{
 			xhr.send(JSON.stringify({'text' : textField.value}));
 			xhr.onload = function(oEvent) {
 				if (xhr.status == 200) {
-					console.log(that);
 					let data = that.analyzeResults(JSON.parse( xhr.responseText));
 					this.results = data;
 					callback(data);
@@ -19,6 +19,7 @@ export default class Input{
 				} else {
 					console.log("error translating");
 				}
+				submitButton.classList.remove('translation-input__button--loading');
 			};
 		});
 	}
@@ -33,9 +34,12 @@ export default class Input{
 			measureSpan.innerHTML = translation.translatedText;
 			let wordWidth = measureSpan.offsetWidth;
 			translation.width = wordWidth;
+			if (translation.language == translateData.sourceLang){
+				translateData.sourceWidth = wordWidth;
+			}
 			return translation;
 		});
-
+		translateData.translations.sort((a, b)=>{return a.width - b.width});
 		body.removeChild(measureSpan);
 		return translateData;
 	}

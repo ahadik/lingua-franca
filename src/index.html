@@ -12,7 +12,15 @@
 			<section class="header--expanded-info"></section>
 		</header>
 		<section class="translation">
-			<section id="translationGraph" class="translation-output"></section>
+			<section id="translationGraph" class="translation-output">
+				<div class="translation-output__stats">
+					<div class="stats__source-lang"><span class="stats__source-lang--emphasis">Deteced Source Language:</span> <span class="sourceLanguageLabel"></span></div>
+					
+					<div class="stats__dist-lang"><span id="langCompareLess" class="stats__dist-lang--emphasis"></span><span class="stats__dist-lang--detail"> of translations shorter than <span class="sourceLanguageLabel"></span></span></div>
+					<div class="stats__dist-lang"><span id="langCompareEqual" class="stats__dist-lang--emphasis"></span><span class="stats__dist-lang--detail"> of translations a similar length to <span class="sourceLanguageLabel"></span></span></div>
+					<div class="stats__dist-lang"><span id="langCompareGreater" class="stats__dist-lang--emphasis"></span><span class="stats__dist-lang--detail"> of translations longer than <span class="sourceLanguageLabel"></span></span></div>
+				</div>
+			</section>
 			<section class="translation-input">
 				<input id="translationTextField" class="translation-input__field" type="text" placeholder="Origin text..." />
 				<button class="translation-input__button" id="translationTextSubmit" action="submit">Translate</button>

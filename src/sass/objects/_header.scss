@@ -6,7 +6,7 @@
 	width: 100%;
 	padding-left:10%;
 	padding-right: 10%;
-	background: $blue;
+	text-align: center;
 	padding-top: 12px;
 	padding-bottom: 12px;
 	box-sizing: border-box;
@@ -16,7 +16,8 @@
 	}
 
 	&__title {
-		color: #fff;
+		
+		color: #000;
 	}
 
 	&__info {

@@ -12,12 +12,16 @@ body {
 }
 
 .translate-text__measure {
-	visibility: hidden;
 	font-family: sans-serif;
 	font-size: 1em;
+	visibility: hidden;
 }
 
 .d3-tip {
 	background-color: white;
-	box-shadow: 0px 0px 5px #888;
+	box-shadow: 0 0 5px #888;
+}
+
+#tiptable {
+	font-size: .75em;
 }
