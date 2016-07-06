@@ -11,7 +11,8 @@
     "install:bower": "npm run bower install",
     "install:bower:root": "./node_modules/.bin/bower install --allow-root",
     "bower": "./node_modules/.bin/bower",
-    "gulp": "./node_modules/.bin/gulp"
+    "gulp": "./node_modules/.bin/gulp",
+    "encrypt": ""
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,8 @@
     "cfenv": "^1.0.0",
     "express": "^4.13.3",
     "request": "^2.72.0",
-    "source-map-support": "^0.4.0"
+    "source-map-support": "^0.4.0",
+    "config-leaf": "git://github.com/ahadik/config-leaf.git"
   },
   "devDependencies": {
     "babel-preset-es2015": "~6.3.13",
