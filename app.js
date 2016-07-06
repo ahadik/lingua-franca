@@ -7,7 +7,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     fs;
 
-var credentials = require('./private/creds.js');
+var credentials = require('./private/creds.json');
 
 var app = express(),
     appEnv = cfenv.getAppEnv();

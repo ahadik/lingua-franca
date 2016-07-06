@@ -4,7 +4,7 @@ var translator = require('../translator/index.js');
 var fs = require('fs');
 var translatedData;
 (()=>{
-	let path = __dirname + "/tmp/out.json";
+	let path = "../../tmp/out.json";
 	fs.access(path, fs.F_OK, function(err) {
 
 		//if the path doesn't resolve or we're running in production mode
@@ -12,6 +12,7 @@ var translatedData;
 		if (err || (process.env.NODE_ENV == 'production')) {
 			translatedData = false;
 		} else {
+			console.log(path);
 			translatedData = require(path);
 		}
 	});
