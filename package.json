@@ -12,11 +12,12 @@
     "install:bower:root": "./node_modules/.bin/bower install --allow-root",
     "bower": "./node_modules/.bin/bower",
     "gulp": "./node_modules/.bin/gulp",
-    "encrypt": ""
+    "encrypt": "encrypt private/creds.js private/creds.js.cast5 --PW=LINGUA_FRANCA_PW",
+    "decrypt": "decrypt private/creds.js.cast5 private/creds.js --PW=LINGUA_FRANCA_PW"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:<insert_your_repository>"
+    "url": "git@github.com:ahadik/lingua-franca.git"
   },
   "author": "Alexander Hadik",
   "license": "Apache-2.0",
