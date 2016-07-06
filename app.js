@@ -18,12 +18,12 @@ if(process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'staging'){
 	app.set('port', 3000);
 }
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
-app.use('/bower_components',    express.static(__dirname + '/bower_components'));
+app.use('/bower_components',    express.static('bower_components'));
 require('./modules/routes/index.js')(app, credentials); // load our routes and pass in our app and fully configured passport
 
 app.listen(app.get('port'), function() {
