@@ -56,12 +56,7 @@
 				left: 5px;
 				right: 5px;
 				bottom: 5px;
-				background-color: white;
-				content: "";
-				//content: url('/icons/loading.svg');
-				mask-image: url('/icons/loading.svg');
-				mask-repeat: no-repeat;
-				mask-position: 50% 50%;
+				content: url('/icons/loading.svg');
 			}
 		}
 	}
