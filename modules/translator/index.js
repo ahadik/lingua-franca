@@ -10,7 +10,6 @@ module.exports = {
 			if (currIter.done){
 				translationObj.sourceLangName = (()=>{
 					for (let language of languages.data.languages){
-						console.log(language);
 						if (language.language == translationObj.sourceLang){return language.name};
 					}
 				})()
@@ -43,5 +42,9 @@ module.exports = {
 				return false;
 			}
 		});
+	},
+
+	getLanguages : () => {
+		return languages.data;
 	}
 }

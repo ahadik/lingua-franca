@@ -7,21 +7,23 @@
 //
 //------------------------------
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
+
 html, 
 input, 
 select, 
 textarea {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 html {
-  font-size: 100%;
+  font-size: 16px;
 }
 
 body {
   font-size: 1em;
   line-height: 1.5;
-  color: color('gray', 80);
+  color: white;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -35,12 +37,14 @@ h4 {
 }
 
 h1 {
-  font-size: 2.369em;
-  font-weight: 700;
+  font-size: 1em;
+  font-weight: 200;
   letter-spacing: -.02em;
+  text-transform: uppercase;
+
 }
 h2 {
-  font-size: 1.777em;
+  font-size: 1em;
   font-weight: 700;
   letter-spacing: -.02em;
 }
@@ -80,4 +84,6 @@ h4 + p {
 
 a {
   cursor: pointer;
+  color: white;
+  text-decoration: none;
 }

@@ -4,16 +4,14 @@ var translator = require('../translator/index.js');
 var fs = require('fs');
 var translatedData;
 (()=>{
-	let path = "../../tmp/out.json";
-	fs.access(path, fs.F_OK, function(err) {
-
+	let path = "/tmp/out.json";
+	fs.access(__dirname + path, fs.F_OK, function(err) {
 		//if the path doesn't resolve or we're running in production mode
 		//don't require the path.
 		if (err || (process.env.NODE_ENV == 'production')) {
 			translatedData = false;
 		} else {
-			console.log(path);
-			translatedData = require(path);
+			translatedData = require(__dirname + path);
 		}
 	});
 })();
@@ -21,7 +19,7 @@ var translatedData;
 module.exports = function(app, credentials) {
 	translator.install(credentials);
 	app.get('/', function(req, res){
-		res.sendFile(__dirname + '/public/index.html');
+		res.render('pages/index', translator.getLanguages());
 	});
 
 	app.post('/translate', function(req, res){

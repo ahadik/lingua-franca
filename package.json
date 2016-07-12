@@ -1,7 +1,7 @@
 {
-  "name": "TemporaryName",
-  "version": "0.0.0",
-  "description": "Temporary description",
+  "name": "linguafranca",
+  "version": "0.0.1",
+  "description": "Test short terms for international compatibility.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -29,6 +29,7 @@
     "express": "^4.13.3",
     "request": "^2.72.0",
     "source-map-support": "^0.4.0",
+    "ejs": "^2.4.2",
     "config-leaf": "git://github.com/ahadik/config-leaf.git"
   },
   "devDependencies": {

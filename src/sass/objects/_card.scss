@@ -1,0 +1,95 @@
+.card {
+	position: relative;
+	display: flex;
+	width: 100%;
+	border-radius: 5px;
+	background: rgba(251, 251, 251, .4);
+	box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.5);
+	padding: $card--padding;
+	margin-bottom: 12px;
+	box-sizing: border-box;
+	overflow: hidden;
+	color: black;
+	flex-flow: row wrap;
+	transition: opacity 1s;
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+
+	&__text-entry {
+		width: 100%;
+		background-color: white;
+		border-radius: 5px;
+		display: flex;
+		align-items: center;
+		padding: 6px 12px 6px 12px;
+	}
+
+	&__text-input {
+		background: none;
+		border: none;
+		border-bottom: 1px solid white;
+		font-size: 1.625em;
+		color: black;
+		min-width: 10%;
+		flex-grow: 1;
+		outline: none;
+		font-weight: 100;
+
+		&::placeholder {
+			color: rgba(255, 255, 255, 0.7);
+		}
+	}
+
+	&__text-submit {
+		position: relative;
+		border-radius: 3px;
+		background-color: #4F8688;
+		border: none;
+		font-size: 1em;
+		margin-left: 12px;
+		color: white;
+		padding-left: 12px;
+		padding-right: 12px;
+		height: 2.25em;
+		cursor: pointer;
+		transition: all 0.25s;
+		width: 100px;
+		overflow: hidden;
+		outline: none;
+
+		&--loading {
+			width: 2.25em;
+			border-radius: 50%;
+			color: transparent;
+			animation: spin 1s linear infinite;
+			pointer-events: none;
+			cursor: default;
+
+			&::before {
+				position: absolute;
+				top: 5px;
+				left: 5px;
+				bottom: 5px;
+				right: 5px;
+
+				content: url('../icons/loading.svg');
+			}
+		}
+	}
+
+	&__dropdown {
+		&::after {
+			//height: 18px;
+			//width: 18px;
+			content: url('../icons/arrow.svg');
+		}
+	}
+
+	&--hidden {
+		opacity: 0;
+	}
+}
+
+@keyframes spin {100% {transform: rotate(360deg);}}

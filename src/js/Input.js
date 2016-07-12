@@ -1,7 +1,7 @@
 export default class Input{
 	constructor(textField, submitButton, callback){
 		submitButton.addEventListener('click', (e) => {
-			submitButton.classList.add('translation-input__button--loading');
+			submitButton.classList.add('card__text-submit--loading');
 			let that = this;
 			e.preventDefault();
 
@@ -13,13 +13,11 @@ export default class Input{
 			xhr.onload = function(oEvent) {
 				if (xhr.status == 200) {
 					let data = that.analyzeResults(JSON.parse( xhr.responseText));
-					this.results = data;
 					callback(data);
-					console.log("Finished");
 				} else {
 					console.log("error translating");
 				}
-				submitButton.classList.remove('translation-input__button--loading');
+				submitButton.classList.remove('card__text-submit--loading');
 			};
 		});
 	}
@@ -39,7 +37,6 @@ export default class Input{
 			}
 			return translation;
 		});
-		translateData.translations.sort((a, b)=>{return a.width - b.width});
 		body.removeChild(measureSpan);
 		return translateData;
 	}

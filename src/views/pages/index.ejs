@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8">
+		<script src="js/script.js" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="fullContentWrapper" class="content-wrapper content-wrapper__all">
+			<div class="content-wrapper content-wrapper__main">
+				<header class="header">
+					<h1>Lingua Franca</h1>
+					<div id="sidePanelHamburger" class="icon__hamburger">
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
+					</div>
+				</header>
+				
+				<section class="card">
+					<div class="card__text-entry">
+						<input placeholder="Origin Phrase" type="text" id="translationTextField" class="card__text-input"/>
+						<button action="submit" id="translationTextSubmit" class="card__text-submit card__text-submit">Translate</button>
+					</div>
+					<p>Deteced Language: <span class="card__dropdown" id="inputLanguage"></span></p>
+				</section>
+				<section class="card card--hidden" id="langDataCard">
+					<div class="table">
+						<div class="table__row">
+							<div class="table__column--2-sixth languageColumn" id="dataLangColumn">
+								<span class="table--header">Language</span>
+							</div>
+							<div class="table__column--3-sixth textColumn">
+								<span class="table--header table__column--sortable table__column--down" data-direction="0"  id="dataTranslationHeader">Translation</span>
+							</div>
+							<div class="table__column--1-sixth">
+								
+							</div>
+						</div>
+						<div class="table__content" id="dataLangElems">
+							
+						</div>
+					</div>
+					<div class="table__column--1-sixth table__column--gradient column__gradient-data" id="gradientDataColumn">
+						<div class="column__data-header" id="longerLangData">
+							<span class="column__data-header--large column__data-header--content" id="percentLongerLangs"></span>
+							<span class="column__data-header--small column__data-header--content"><span class="numLangs"></span> languages are longer.</span>
+						</div>
+						<div class="column__data-header" id="shorterLangData">
+							<span class="column__data-header--large column__data-header--content"></span>
+							<span class="column__data-header--small column__data-header--content" id="percentLongerLangs"><span class="numLangs"></span> languages are shorter.</span>
+						</div>
+					</div>
+
+				</section>
+			</div>
+			<aside class="sidebar" id="mainSidebar">
+				<a class="sidebar__call-to-action" href="#">How to Use Lingua Franca</a>
+				<h2 class="sidebar__header">Customize Languages</h2>
+				<ul class="sidebar__languages">
+					<% languages.forEach(function(language) {%>
+						<li class="sidebar__language"><input type="checkbox" id="<%= language.language %>" class="langCheckBox" checked><label for="<%= language.language %>"><%= language.name %></label></li>
+					<% }); %>
+				</ul>
+			</aside>
+		</div>
+	</body>
+</html>
