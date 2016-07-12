@@ -36,6 +36,7 @@ var dirs = {
       'watch':'./src/**/*.js'
     },
     'server': {
+      'index' : './index.js',
       'main': './app.js',
       'watch': [
         'app.js',
@@ -221,7 +222,7 @@ gulp.task('images:watch', function () {
 //////////////////////////////
 gulp.task('nodemon', function (cb) {
   nodemon({
-    'script': dirs.js.server.main,
+    'script': dirs.js.server.index,
     'watch': dirs.js.server.watch,
     'env': {
       'NODE_ENV': 'development'
