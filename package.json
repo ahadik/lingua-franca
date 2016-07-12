@@ -12,8 +12,8 @@
     "install:bower:root": "./node_modules/.bin/bower install --allow-root",
     "bower": "./node_modules/.bin/bower",
     "gulp": "./node_modules/.bin/gulp",
-    "encrypt": "encrypt private/creds.json private/creds.json.cast5 --PW=LINGUA_FRANCA_PW",
-    "decrypt": "decrypt private/creds.json.cast5 private/creds.json --PW=LINGUA_FRANCA_PW"
+    "encrypt": "encrypt private/creds.js private/creds.js.cast5 --PW=LINGUA_FRANCA_PW",
+    "decrypt": "decrypt private/creds.js.cast5 private/creds.js --PW=LINGUA_FRANCA_PW"
   },
   "repository": {
     "type": "git",
