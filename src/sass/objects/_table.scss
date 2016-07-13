@@ -1,0 +1,92 @@
+.table {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	z-index: 1;
+
+	&__column {
+
+		@for $i from 1 through 5 {
+			&--#{$i}-sixth {
+				width: unquote('#{($i / 6 * 100)}%');
+			}
+		}
+
+		&--gradient {
+			position: absolute;
+			top: calc( #{$card--padding} + 1.5em);
+			bottom: $card--padding;
+			right: $card--padding;
+			background: linear-gradient(#E4607F, #9265A3);
+			z-index: 0;
+
+		}
+
+		&--sortable {
+			&::after {
+				display: inline-block;
+				content: url('../icons/arrow.svg');
+				margin-left: 6px;
+				transition: transform 0.5s;
+			}
+		}
+
+		&--up {
+			&::after {
+				transform: rotate(180deg);
+			}
+		}
+
+		&--down {
+			&::after {
+				transform: rotate(0deg);
+			}
+		}
+
+
+	}
+
+	&__row {
+		width: 100%;
+		display: flex;
+
+		&--highlight {
+			background-color: rgba(255, 255, 255, 0.5);
+		}
+	}
+
+	&--header {
+		text-transform: uppercase;
+		cursor: default;
+	}
+}
+
+.column {
+	&__gradient-data {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding-top: 12px;
+		padding-bottom: 12px;
+
+		&--reverse {
+			flex-direction: column-reverse;
+		}
+	}
+
+	&__data-header {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		color: white;
+
+		&--large {
+			font-size: 3em;
+		}
+
+		&--content {
+			width: 80%;
+		}
+	}
+}

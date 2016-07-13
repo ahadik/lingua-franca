@@ -36,6 +36,7 @@ var dirs = {
       'watch':'./src/**/*.js'
     },
     'server': {
+      'index' : './index.js',
       'main': './app.js',
       'watch': [
         'app.js',
@@ -46,7 +47,7 @@ var dirs = {
   'public' : 'public/',
   'sass': 'src/sass/**/*.scss',
   'images': {'imgs': 'src/imgs/**/*', 'icons' : 'src/icons/**/*'},
-  'html': 'src/**/*.html'
+  'ejs': 'src/**/*.ejs'
 };
 
 var isCI = (typeof process.env.CI === 'undefined') ? process.env.CI : false;
@@ -147,14 +148,14 @@ gulp.task('eslint:watch', function () {
 //////////////////////////////
 // HTML Tasks
 //////////////////////////////
-gulp.task('html', function() {
-  gulp.src(dirs.html)
+gulp.task('ejs', function() {
+  gulp.src(dirs.ejs)
     .pipe(gulp.dest(dirs.public))
     .pipe(browserSync.stream());
 })
 
-gulp.task('html:watch', function () {
-  gulp.watch(dirs.html, ['html']);
+gulp.task('ejs:watch', function () {
+  gulp.watch(dirs.ejs, ['ejs']);
 });
 
 
@@ -221,7 +222,7 @@ gulp.task('images:watch', function () {
 //////////////////////////////
 gulp.task('nodemon', function (cb) {
   nodemon({
-    'script': dirs.js.server.main,
+    'script': dirs.js.server.index,
     'watch': dirs.js.server.watch,
     'env': {
       'NODE_ENV': 'development'
@@ -242,18 +243,19 @@ gulp.task('browser-sync', ['nodemon'], function () {
   var appEnv = cfenv.getAppEnv();
   appEnv.url = 'http://localhost:3000/';
   browserSync.init({
-  port: 8000,
-    'proxy': appEnv.url
+    port: 8000,
+    proxy: appEnv.url,
+    notify: false
   });
 });
 
 //////////////////////////////
 // Running Tasks
 //////////////////////////////
-gulp.task('build', ['client-pack', 'server-pack', 'eslint', 'html', 'sass', 'images']);
+gulp.task('build', ['client-pack', 'server-pack', 'eslint', 'ejs', 'sass', 'images']);
 
 gulp.task('test', ['build']);
 
-gulp.task('watch', ['client-pack:watch', 'server-pack:watch', 'eslint:watch', 'html:watch', 'sass:watch', 'images:watch']);
+gulp.task('watch', ['client-pack:watch', 'server-pack:watch', 'eslint:watch', 'ejs:watch', 'sass:watch', 'images:watch']);
 
 gulp.task('default', ['browser-sync', 'build', 'watch']);

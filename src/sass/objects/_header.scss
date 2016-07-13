@@ -1,26 +1,13 @@
 .header {
-	height: $header--height;
-	position: absolute;
-	top: 0;
-	transition: height .4s;
-	width: 100%;
-	padding-left:10%;
-	padding-right: 10%;
-	text-align: center;
-	padding-top: 12px;
-	padding-bottom: 12px;
-	box-sizing: border-box;
+	align-items: center;
+	display: flex;
+	height: 3.625em;
+	display: flex;
+	justify-content: space-between;
 
-	&#{&}--open {
-		height: 100%;
-	}
-
-	&__title {
-		
-		color: #000;
-	}
-
-	&__info {
-
+	.icon__hamburger {
+		position: relative;
+		width: 24px;
+		height: 20px;
 	}
 }
