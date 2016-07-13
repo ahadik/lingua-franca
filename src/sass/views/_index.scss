@@ -1,11 +1,13 @@
 $sidePadding: 5%;
 $sideBarWidth: 275px;
 
+
 body {
+	background: linear-gradient(to bottom right, $gradient__green--start, $gradient__green--end);
 	height: 100%;
 	margin: 0;
+	overflow-x: hidden;
 	width: 100%;
-	background: linear-gradient(to bottom right, #3E728A, #72C0C3);
 }
 
 .content-wrapper {

@@ -1,17 +1,19 @@
 .card {
-	position: relative;
-	display: flex;
-	width: 100%;
+	$card--background: rgba(251, 251, 251, .4);
+	$card--text-color: #000;
+	background: $card--background;
 	border-radius: 5px;
-	background: rgba(251, 251, 251, .4);
-	box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.5);
-	padding: $card--padding;
-	margin-bottom: 12px;
+	box-shadow: 1px 3px 4px $dropshadow--color;
 	box-sizing: border-box;
-	overflow: hidden;
-	color: black;
+	color: $card--text-color;
+	display: flex;
 	flex-flow: row wrap;
+	margin-bottom: 12px;
+	overflow: hidden;
+	padding: $card--padding;
+	position: relative;
 	transition: opacity 1s;
+	width: 100%;
 
 	&:last-of-type {
 		margin-bottom: 0;
