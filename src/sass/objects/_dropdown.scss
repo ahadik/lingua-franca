@@ -1,4 +1,10 @@
 .dropdown {
+	background: rgba(0, 0, 0, .5);
+	border: 0;
+	color: white;
+	height: 20px;
+	width: 120px;
+
 	.card__dropdown--detecting & {
 		display: none;
 	}
