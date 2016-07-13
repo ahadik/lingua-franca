@@ -12,6 +12,9 @@ var credentials = require('./private/creds.js');
 var app = express(),
     appEnv = cfenv.getAppEnv();
 
+app.set('view engine', 'ejs');
+app.set('views', 'public/views')
+
 if(process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'staging'){
 	app.set('port', process.env.VCAP_APP_PORT || 80);
 }else{

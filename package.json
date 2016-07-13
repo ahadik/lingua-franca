@@ -1,7 +1,7 @@
 {
-  "name": "TemporaryName",
-  "version": "0.0.0",
-  "description": "Temporary description",
+  "name": "linguafranca",
+  "version": "0.0.1",
+  "description": "Test short terms for international compatibility.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -12,8 +12,8 @@
     "install:bower:root": "./node_modules/.bin/bower install --allow-root",
     "bower": "./node_modules/.bin/bower",
     "gulp": "./node_modules/.bin/gulp",
-    "encrypt": "encrypt private/creds.json private/creds.json.cast5 --PW=LINGUA_FRANCA_PW",
-    "decrypt": "decrypt private/creds.json.cast5 private/creds.json --PW=LINGUA_FRANCA_PW"
+    "encrypt": "encrypt private/creds.js private/creds.js.cast5 --PW=LINGUA_FRANCA_PW",
+    "decrypt": "decrypt private/creds.js.cast5 private/creds.js --PW=LINGUA_FRANCA_PW"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "express": "^4.13.3",
     "request": "^2.72.0",
     "source-map-support": "^0.4.0",
+    "ejs": "^2.4.2",
     "config-leaf": "git://github.com/ahadik/config-leaf.git"
   },
   "devDependencies": {

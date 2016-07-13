@@ -27,6 +27,7 @@ build/Release
 
 index.js
 index.js.map
+*.sketch
 
 # Dependency directories
 node_modules
