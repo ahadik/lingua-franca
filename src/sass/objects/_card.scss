@@ -80,10 +80,23 @@
 	}
 
 	&__dropdown {
-		&::after {
-			//height: 18px;
-			//width: 18px;
-			content: url('../icons/arrow.svg');
+		
+		&--onload {
+			&::before {
+				content: 'Set a Language: ';
+			}
+		}
+
+		&--detecting {
+			&::before {
+				content: 'Detecting Language...';
+			}
+		}
+
+		&--postload {
+			&::before {
+				content: 'Detected Language: ';
+			}
 		}
 	}
 

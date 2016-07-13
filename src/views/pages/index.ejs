@@ -20,7 +20,14 @@
 						<input placeholder="Origin Phrase" type="text" id="translationTextField" class="card__text-input"/>
 						<button action="submit" id="translationTextSubmit" class="card__text-submit card__text-submit">Translate</button>
 					</div>
-					<p>Deteced Language: <span class="card__dropdown" id="inputLanguage"></span></p>
+					<span class="card__dropdown card__dropdown--onload" id="inputLanguage">
+						<select class="dropdown" id="inputLanguageSelector">
+							<option value="" disabled selected>Auto</option>
+							<% languages.forEach(function(language) { %>
+								<option value="<%= language.language %>"><%= language.name %></option>
+							<% }); %>
+						</select>
+					</span>
 				</section>
 				<section class="card card--hidden" id="langDataCard">
 					<div class="table">

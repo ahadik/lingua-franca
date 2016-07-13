@@ -4,7 +4,7 @@ var languages = null;
 var credentials = null;
 
 module.exports = {
-	translate : (text, callback) => {
+	translate : (text, sourceLanguage, callback) => {
 		let translationIteration = (langIter, translationObj) => {
 			let currIter = langIter.next();
 			if (currIter.done){
@@ -15,7 +15,11 @@ module.exports = {
 				})()
 				callback(translationObj);
 			}else{
-				request(encodeURI(rootURL+'?q='+text+'&target='+currIter.value.language+'&key='+credentials.googleTranslate.apiKey), function (error, response, body) {
+				let url = rootURL+'?q='+text+'&target='+currIter.value.language+'&key='+credentials.googleTranslate.apiKey;
+				if (sourceLanguage != null){
+					url += `&source=${sourceLanguage}`;
+				}
+				let translateReqCallback = (error, response, body) => {
 					if (!error && response.statusCode == 200) {
 						let translatedText= JSON.parse(body);
 						for (let translation of translatedText.data.translations) {
@@ -26,7 +30,13 @@ module.exports = {
 						}
 						translationIteration(langIter, translationObj);
 					}
-				});
+				}
+
+				if (sourceLanguage != currIter.value.language) {
+					request(encodeURI(url), translateReqCallback);
+				}else{
+					translateReqCallback(null, {statusCode : 200}, `{"data": {"translations": [{"translatedText": "${text}","detectedSourceLanguage": "${sourceLanguage}"}]}}`);
+				}
 			}
 		};
 		translationIteration(languages.data.languages[Symbol.iterator](), {translations : [], sourceLang : null})

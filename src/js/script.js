@@ -9,13 +9,28 @@ var sidebar;
 window.onload = ()=>{
 	sidebar = new Sidebar(document.querySelector('#mainSidebar'));
 	translationData = new Data();
-	textInput = new Input(document.querySelector('#translationTextField'), document.querySelector('#translationTextSubmit'), (data)=>{translationData.setData(data); translationData.setRows(); translationData.renderData();});
+	
+	let requestCallback = (data)=>{
+		translationData.setData(data); 
+		translationData.setRows(); 
+		translationData.renderData();
+	}
+
+	textInput = new Input(document.querySelector('#translationTextField'), document.querySelector('#translationTextSubmit'), requestCallback);
 	
 	let hamburgers = document.querySelectorAll('.icon__hamburger');
 	[...hamburgers].forEach((hamburger) => {
 		hamburger.addEventListener('click', ()=> {
 			hamburger.classList.toggle('icon__hamburger--open');
 		}, true);
+	});
+
+	//Handle re-translation for selection of new language after initial translation
+	let langDropdown = document.querySelector('#inputLanguageSelector');
+	langDropdown.addEventListener('change', () => {
+		if (!document.querySelector('#inputLanguage').classList.contains('card__dropdown--onload')){
+			textInput.triggerRequest(requestCallback, langDropdown.value);
+		}
 	});
 	
 	document.querySelector('#sidePanelHamburger').addEventListener('click', (event) => {

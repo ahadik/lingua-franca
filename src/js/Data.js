@@ -13,7 +13,10 @@ export default class Data{
 	setData(data){
 		this.set = true;
 		this.sourceLang = data.sourceLang;
-		document.querySelector('#inputLanguage').innerHTML = data.sourceLangName;
+		let inputLangStatus = document.querySelector('#inputLanguage');
+		inputLangStatus.classList.remove('card__dropdown--detecting');
+		inputLangStatus.classList.add('card__dropdown--postload');
+		inputLangStatus.querySelector('.dropdown').value = data.sourceLang;
 		data.translations.forEach(translation => {
 			this.translations[translation.language]['langName'] = translation.langName;
 			this.translations[translation.language]['translatedText'] = translation.translatedText;

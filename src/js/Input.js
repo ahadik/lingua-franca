@@ -1,25 +1,33 @@
 export default class Input{
 	constructor(textField, submitButton, callback){
-		submitButton.addEventListener('click', (e) => {
-			submitButton.classList.add('card__text-submit--loading');
-			let that = this;
+		this.textField = textField;
+		this.submitButton = submitButton;
+		this.submitButton.addEventListener('click', (e) => {
+			let inputLangStatus = document.querySelector('#inputLanguage')
+			inputLangStatus.classList.remove('card__dropdown--onload');
+			inputLangStatus.classList.add('card__dropdown--detecting');
 			e.preventDefault();
-
-			let xhr = new XMLHttpRequest();
-			xhr.open('POST', 'translate', true);
-			//Send the proper header information along with the request
-			xhr.setRequestHeader("Content-type", "application/json");
-			xhr.send(JSON.stringify({'text' : textField.value}));
-			xhr.onload = function(oEvent) {
-				if (xhr.status == 200) {
-					let data = that.analyzeResults(JSON.parse( xhr.responseText));
-					callback(data);
-				} else {
-					console.log("error translating");
-				}
-				submitButton.classList.remove('card__text-submit--loading');
-			};
+			this.triggerRequest(callback, document.querySelector('#inputLanguageSelector').value);
 		});
+	}
+
+	triggerRequest(callback, setLang){
+		this.submitButton.classList.add('card__text-submit--loading');
+		let that = this;
+		let xhr = new XMLHttpRequest();
+		xhr.open('POST', `translate${(setLang != '') && (setLang != undefined) ? '?lang='+setLang : ''}`, true);
+		//Send the proper header information along with the request
+		xhr.setRequestHeader("Content-type", "application/json");
+		xhr.send(JSON.stringify({'text' : this.textField.value}));
+		xhr.onload = function(oEvent) {
+			if (xhr.status == 200) {
+				let data = that.analyzeResults(JSON.parse( xhr.responseText));
+				callback(data);
+			} else {
+				console.log("error translating");
+			}
+			that.submitButton.classList.remove('card__text-submit--loading');
+		};
 	}
 
 	analyzeResults(translateData){
