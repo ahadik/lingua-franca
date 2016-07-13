@@ -59,13 +59,21 @@
 		overflow: hidden;
 		outline: none;
 
+		&::before {
+			content: url('../icons/loading.svg');
+			display: inline-block;
+			height: 0;
+			transition: all .25s;
+			width: 0;
+		}
+
 		&--loading {
-			width: 2.25em;
+			animation: spin 1s linear infinite;
 			border-radius: 50%;
 			color: transparent;
-			animation: spin 1s linear infinite;
-			pointer-events: none;
 			cursor: default;
+			pointer-events: none;
+			width: 2.25em;
 
 			&::before {
 				position: absolute;
@@ -73,8 +81,8 @@
 				left: 5px;
 				bottom: 5px;
 				right: 5px;
-
-				content: url('../icons/loading.svg');
+				height: auto;
+				width: auto;
 			}
 		}
 	}
