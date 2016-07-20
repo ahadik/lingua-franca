@@ -6,7 +6,7 @@ export default class Data{
 		this.translations = {};
 		this.rows = [];
 		[...document.querySelectorAll('.langCheckBox')].forEach((checkbox) => {
-			this.translations[checkbox.id] = {active : checkbox.hasAttribute('checked') ? true : false};
+			this.translations[checkbox.id] = {active : checkbox.checked ? true : false};
 		});
 	}
 
@@ -56,17 +56,43 @@ export default class Data{
 			return translationString;
 		}
 
+		/*
+			<div class="column__data-header" id="longerLangData">
+				<span class="column__data-header--small column__data-header--content"><span class="numLangs column__data-header--numlangs"></span> longer</span>
+				<span class="column__data-header--large column__data-header--content" id="percentLongerLangs"></span>
+			</div>
+			<div class="column__data-header" id="shorterLangData">
+				<span class="column__data-header--small column__data-header--content" id="percentLongerLangs"><span class="numLangs column__data-header--numlangs"></span> shorter</span>
+				<span class="column__data-header--large column__data-header--content"></span>
+			</div>
+		*/
+
+		let createDataColumn = () => {
+			let columnWrapper = document.createElement('div');
+			columnWrapper.classList.add('table__column--1-sixth');
+			columnWrapper.innerHTML = '<div class="column__data-header" id="longerLangData">' +
+				'<span class="column__data-header--small column__data-header--content"><span class="numLangs column__data-header--numlangs"></span> longer</span>' +
+				'<span class="column__data-header--large column__data-header--content" id="percentLongerLangs"></span>' +
+			'</div>' +
+			'<div class="column__data-header" id="shorterLangData">' +
+				'<span class="column__data-header--small column__data-header--content" id="percentLongerLangs"><span class="numLangs column__data-header--numlangs"></span> shorter</span>' +
+				'<span class="column__data-header--large column__data-header--content"></span>' +
+			'</div>';
+			return columnWrapper;
+		}
+
 		this.rows = [];
 		for (let lang in this.translations) {
 			if (this.translations.hasOwnProperty(lang) && this.translations[lang].active){
 				let translationRow = document.createElement('div');
 				translationRow.classList.add('table__row');
 
-				if (lang == this.sourceLang){
-					translationRow.classList.add('table__row--highlight');
-				}
 				translationRow.appendChild(createLangColumn(lang, this.translations[lang].langName));
 				translationRow.appendChild(createTranslationColumn(lang, this.translations[lang].translatedText));
+				if (lang == this.sourceLang){
+					translationRow.classList.add('table__row--highlight');
+					translationRow.appendChild(createDataColumn());
+				}
 				let row = new Row(translationRow, this.translations[lang].width, this.translations[lang].langName, this.translations[lang].language);
 				this.rows.push(row);
 			}
@@ -78,7 +104,10 @@ export default class Data{
 	renderData(){
 
 		let langData = document.querySelector('#dataLangElems');
+		let gradientColumn = document.querySelector('#gradientDataColumn');
+
 		langData.innerHTML = '';
+		langData.appendChild(gradientColumn);
 
 		let direction = parseInt(document.querySelector('#dataTranslationHeader').getAttribute('data-direction'));
 
@@ -87,8 +116,6 @@ export default class Data{
 		let totalCount = this.rows.length;
 		let currCount = 0;
 		this.rows.forEach((rowObject) => {
-			//console.log(rowObject.languageID);
-			//console.log(this.sourceLang);
 			if (rowObject.languageID == this.sourceLang) {
 				beforeCount = currCount;
 				currCount = 0;
@@ -98,19 +125,22 @@ export default class Data{
 		});
 		afterCount = currCount;
 
-		if (direction){
-			document.querySelector('#gradientDataColumn').classList.add('column__gradient-data--reverse');
-			document.querySelector('.column__data-header:last-of-type .column__data-header--large').innerHTML = `${Math.round(beforeCount/totalCount*100)}%`;
-			document.querySelector('.column__data-header:first-of-type .column__data-header--large').innerHTML = `${Math.round(afterCount/totalCount*100)}%`;
-			document.querySelector('.column__data-header:last-of-type .numLangs').innerHTML = beforeCount;
-			document.querySelector('.column__data-header:first-of-type .numLangs').innerHTML = afterCount;
-			
-		}else{
-			document.querySelector('#gradientDataColumn').classList.remove('column__gradient-data--reverse');
-			document.querySelector('.column__data-header:first-of-type .column__data-header--large').innerHTML = `${Math.round(beforeCount/totalCount*100)}%`;
-			document.querySelector('.column__data-header:last-of-type .column__data-header--large').innerHTML = `${Math.round(afterCount/totalCount*100)}%`;
-			document.querySelector('.column__data-header:first-of-type .numLangs').innerHTML = beforeCount;
-			document.querySelector('.column__data-header:last-of-type .numLangs').innerHTML = afterCount;
+		if (document.querySelector('.column__data-header')){
+			//shorter first
+			if (direction){
+				document.querySelector('#gradientDataColumn').classList.add('column__gradient-data--reverse');
+				document.querySelector('.column__data-header:last-of-type .column__data-header--large').innerHTML = `${Math.round(beforeCount/totalCount*100)}%`;
+				document.querySelector('.column__data-header:first-of-type .column__data-header--large').innerHTML = `${Math.round(afterCount/totalCount*100)}%`;
+				document.querySelector('.column__data-header:last-of-type .numLangs').innerHTML = beforeCount+' ';
+				document.querySelector('.column__data-header:first-of-type .numLangs').innerHTML = afterCount+' ';
+			//longer first
+			}else{
+				document.querySelector('#gradientDataColumn').classList.remove('column__gradient-data--reverse');
+				document.querySelector('.column__data-header:first-of-type .column__data-header--large').innerHTML = `${Math.round(beforeCount/totalCount*100)}%`;
+				document.querySelector('.column__data-header:last-of-type .column__data-header--large').innerHTML = `${Math.round(afterCount/totalCount*100)}%`;
+				document.querySelector('.column__data-header:first-of-type .numLangs').innerHTML = beforeCount+' ';
+				document.querySelector('.column__data-header:last-of-type .numLangs').innerHTML = afterCount+' ';
+			}
 		}
 
 		let dataCard = document.querySelector('#langDataCard')

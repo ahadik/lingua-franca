@@ -1,14 +1,11 @@
 .sidebar {
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
-	width: 275px;
-	padding: 36px;
+	width: 100%;
 	box-sizing: border-box;
 	overflow-y: scroll;
+	margin-top: $header--padding;
 
-	&__call-to-action{
-		font-weight: 100;
-		font-size: 1em;
+	&__call-to-action {
+		color : #BEBEBE;
 	}
 
 	&__header {
@@ -17,6 +14,8 @@
 
 	&__languages {
 		padding: 0;
+		padding-left: 10px;
+		overflow-x: visible;
 	}
 
 	&__language {
