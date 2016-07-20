@@ -1,36 +1,24 @@
-$sidePadding: 5%;
-$sideBarWidth: 275px;
-
-
 body {
 	background: linear-gradient(to bottom right, $gradient__green--start, $gradient__green--end);
 	height: 100%;
 	margin: 0;
-	overflow-x: hidden;
 	width: 100%;
+	overflow: hidden;
 }
 
 .content-wrapper {
 	box-sizing: border-box;
+	position: relative;
+	padding-left: 30px;
+	padding-right: 30px;
+	overflow-y: scroll;
+	width: 100%;
+	height: 100%;
 
-	&__all {
-		height: 100%;
-		left: 0;
-		position: absolute;
-		top: 0;
-		width: calc(100% + #{$sideBarWidth});
+	&__scroll {
 		display: flex;
-		transition: 1s width;
-		&--mini {
-			width: 100%;
-		}
-	}
-
-	&__main {
-		padding-left: $sidePadding;
-		padding-right: $sidePadding;
-		width: calc(100% - #{$sideBarWidth});
-		overflow-y: scroll;
-		height: 100%;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
 	}
 }

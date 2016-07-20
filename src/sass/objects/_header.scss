@@ -1,13 +1,30 @@
 .header {
 	align-items: center;
 	display: flex;
-	height: 3.625em;
-	display: flex;
+	position: fixed;
+	flex-wrap: wrap;
 	justify-content: space-between;
+	top: 0;
+	left: 0;
+	background-color: $sidebar-blue;
+	height: calc(1em + (#{$header--padding} * 2));
+	overflow: hidden;
+	transition: height 0.5s;
+	width: $sideBarWidth;
+	box-sizing: border-box;
+	padding-top: $header--padding;
+	padding-bottom: $header--padding;
+	padding-left: $header--padding--sides;
+	padding-right: $header--padding--sides;
+	z-index: 2;
 
-	.icon__hamburger {
-		position: relative;
-		width: 24px;
-		height: 20px;
+	&__menu {
+		margin-top: -6px;
+	}
+
+	&--open {
+		height: 100%;
+		padding-bottom: 0px;
+		overflow-y: scroll;
 	}
 }

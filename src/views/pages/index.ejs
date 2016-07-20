@@ -4,18 +4,30 @@
 		<script src="js/script.js" charset="utf-8"></script>
 	</head>
 	<body>
-		<div id="fullContentWrapper" class="content-wrapper content-wrapper__all">
-			<div class="content-wrapper content-wrapper__main">
-				<header class="header">
-					<h1>Lingua Franca</h1>
-					<div id="sidePanelHamburger" class="icon__hamburger">
-						<div class="bar"></div>
-						<div class="bar"></div>
-						<div class="bar"></div>
-					</div>
-				</header>
-				
-				<section class="card">
+		<header class="header" id="header">
+			<h1 class="header__title">Lingua Franca</h1>
+			<div id="sidePanelHamburger" class="header__menu icon__hamburger icon__hamburger--main">
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+			</div>
+			<aside class="sidebar" id="mainSidebar">
+				<h3 class="sidebar__header--cta"><a class="sidebar__call-to-action" href="#">How to Use Lingua Franca</a></h3>
+				<h3 class="sidebar__header">Customize Languages</h3>
+				<ul class="sidebar__languages">
+					<li class="sidebar__language checkbox checkbox--master-select">
+						<input type="checkbox" class="checkbox__box" id="masterLangToggle">
+						<label for="masterLangToggle" class="checkbox__label checkbox__label--master"><span>Select all/none</span></label>
+					</li>
+					<% languages.forEach(function(language) {%>
+						<li class="sidebar__language checkbox"><input type="checkbox" id="<%= language.language %>" class="langCheckBox checkbox__box" checked><label for="<%= language.language %>" class="checkbox__label"><span><%= language.name %></span></label></li>
+					<% }); %>
+				</ul>
+			</aside>
+		</header>
+		<div class="content-wrapper">
+			<section class="content-wrapper__scroll">
+				<article class="card">
 					<div class="card__text-entry">
 						<input placeholder="Origin Phrase" type="text" id="translationTextField" class="card__text-input"/>
 						<button action="submit" id="translationTextSubmit" class="card__text-submit card__text-submit">Translate</button>
@@ -28,8 +40,8 @@
 							<% }); %>
 						</select>
 					</span>
-				</section>
-				<section class="card card--hidden" id="langDataCard">
+				</article>
+				<article class="card card--hidden" id="langDataCard">
 					<div class="table">
 						<div class="table__row">
 							<div class="table__column--2-sixth languageColumn" id="dataLangColumn">
@@ -43,31 +55,11 @@
 							</div>
 						</div>
 						<div class="table__content" id="dataLangElems">
-							
+							<div class="table__column--1-sixth table__column--gradient column__gradient-data" id="gradientDataColumn"></div>
 						</div>
 					</div>
-					<div class="table__column--1-sixth table__column--gradient column__gradient-data" id="gradientDataColumn">
-						<div class="column__data-header" id="longerLangData">
-							<span class="column__data-header--large column__data-header--content" id="percentLongerLangs"></span>
-							<span class="column__data-header--small column__data-header--content"><span class="numLangs"></span> languages are longer.</span>
-						</div>
-						<div class="column__data-header" id="shorterLangData">
-							<span class="column__data-header--large column__data-header--content"></span>
-							<span class="column__data-header--small column__data-header--content" id="percentLongerLangs"><span class="numLangs"></span> languages are shorter.</span>
-						</div>
-					</div>
-
-				</section>
-			</div>
-			<aside class="sidebar" id="mainSidebar">
-				<a class="sidebar__call-to-action" href="#">How to Use Lingua Franca</a>
-				<h2 class="sidebar__header">Customize Languages</h2>
-				<ul class="sidebar__languages">
-					<% languages.forEach(function(language) {%>
-						<li class="sidebar__language"><input type="checkbox" id="<%= language.language %>" class="langCheckBox" checked><label for="<%= language.language %>"><%= language.name %></label></li>
-					<% }); %>
-				</ul>
-			</aside>
+				</article>
+			</section>
 		</div>
 	</body>
 </html>

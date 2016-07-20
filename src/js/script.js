@@ -1,6 +1,7 @@
 import Input from './Input.js';
 import Data from  './Data.js';
 import Sidebar from './Sidebar.js';
+import Cookie from './Cookie.js';
 
 var textInput;
 var translationData;
@@ -34,18 +35,48 @@ window.onload = ()=>{
 	});
 	
 	document.querySelector('#sidePanelHamburger').addEventListener('click', (event) => {
-		document.querySelector('#fullContentWrapper').classList.toggle('content-wrapper__all--mini');
+		document.querySelector('#header').classList.toggle('header--open');
+
+		let callback = function(){
+			document.querySelector('.header--open').classList.remove('header--open');
+			document.querySelector('.icon__hamburger').classList.remove('icon__hamburger--open');
+			openWrapper.removeEventListener('click', callback, false);
+			document.querySelector('#header').scrollTop = 0;
+
+		}
+		if (document.querySelector('.header').classList.contains('header--open')){
+			var openWrapper = document.querySelector('.header--open + .content-wrapper');
+			openWrapper.addEventListener('click', callback, false);
+		}
+		
 	});
 
 	let checkBoxes = document.querySelectorAll('.langCheckBox');
+	
+	function displayGraph(data){
+		if (data.set){
+			data.setRows();
+			data.renderData();
+		}
+	}
+
 	[...checkBoxes].forEach((checkBox) => {
 		checkBox.addEventListener('change', (e) => {
 			sidebar.processCheckboxToggle(e.target, translationData);
-			if (translationData.set){
-				translationData.setRows();
-				translationData.renderData();
-			}
+			Cookie.createCookie('languages',JSON.stringify(sidebar.savedLangs));
+			sidebar.testAndSetMasterToggle();
+			displayGraph(translationData);
 		});
+	});
+
+	let masterLangToggle = document.querySelector('#masterLangToggle');
+	sidebar.testAndSetMasterToggle();
+	masterLangToggle.addEventListener('change', (event)=>{
+		sidebar.processMasterCheckboxToggle(masterLangToggle, translationData, () => {
+			Cookie.createCookie('languages', JSON.stringify(sidebar.savedLangs));
+			displayGraph(translationData);
+		});
+		sidebar.testAndSetMasterToggle();
 	});
 
 	let columnArrowHeaders = document.querySelectorAll('.table__column--sortable');
@@ -63,5 +94,5 @@ window.onload = ()=>{
 		translationData.sortRows('width', direction ? false : true);
 		translationData.renderData();
 	});
-	
+
 };

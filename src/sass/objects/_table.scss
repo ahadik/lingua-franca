@@ -15,11 +15,11 @@
 
 		&--gradient {
 			position: absolute;
-			top: calc( #{$card--padding} + 1.5em);
-			bottom: $card--padding;
-			right: $card--padding;
+			top: 1.5em;
+			bottom: 0;
+			right: 0;
 			background: linear-gradient(#E4607F, #9265A3);
-			z-index: 0;
+			z-index: -1;
 
 		}
 
@@ -67,8 +67,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		padding-top: 12px;
-		padding-bottom: 12px;
+		overflow: hidden;
 
 		&--reverse {
 			flex-direction: column-reverse;
@@ -78,15 +77,52 @@
 	&__data-header {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: space-between;
 		color: white;
+		position: absolute;
+
+		&:first-of-type {
+			margin-top: -3em;
+			align-items: flex-end;
+		}
+
+		&:last-of-type {
+			margin-top: calc(1em + 5px);
+			align-items: flex-start;
+		}
 
 		&--large {
-			font-size: 3em;
+			font-weight: 100;
+			font-size: 3.1vw;
+			line-height: 1em;
+			@media(min-width: 1160px){
+				font-size: 2.5em;
+			}
+		}
+
+		&--small {
+			font-weight: 500;
+			font-size: 1em;
 		}
 
 		&--content {
-			width: 80%;
+			display: flex;
+			flex-direction: row;
+			align-items: flex-end;
+			width: calc(50% - 10px);
+			flex-wrap: wrap;
+
+			&:first-of-type {
+				margin-left: 5px;
+			}
+
+			&:last-of-type {
+				margin-right: 5px;
+			}
+		}
+
+		&--numlangs {
+			margin-right: 6px;
 		}
 	}
 }
