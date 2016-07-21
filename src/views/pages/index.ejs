@@ -2,6 +2,7 @@
 	<head>
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8">
 		<script src="js/script.js" charset="utf-8"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
 		<header class="header" id="header">
@@ -30,7 +31,14 @@
 				<article class="card">
 					<div class="card__text-entry">
 						<input placeholder="Origin Phrase" type="text" id="translationTextField" class="card__text-input"/>
-						<button action="submit" id="translationTextSubmit" class="card__text-submit card__text-submit">Translate</button>
+						<button action="submit" id="translationTextSubmit" class="card__text-submit">
+							<span class="button__text">Translate</span>
+							<div class="icon__loader">
+  								<div class="icon__loader--ball"></div>
+  								<div class="icon__loader--ball"></div>
+  								<div class="icon__loader--ball"></div>
+							</div>
+						</button>
 					</div>
 					<span class="card__dropdown card__dropdown--onload" id="inputLanguage">
 						<select class="dropdown" id="inputLanguageSelector">
