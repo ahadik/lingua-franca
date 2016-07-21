@@ -12,7 +12,8 @@ export default class Input{
 	}
 
 	triggerRequest(callback, setLang){
-		this.submitButton.classList.add('card__text-submit--loading');
+		document.querySelector('#loader').classList.add('card--loading');
+		document.querySelector('#loader').classList.remove('card--hidden');
 		let that = this;
 		let xhr = new XMLHttpRequest();
 		xhr.open('POST', `translate${(setLang != '') && (setLang != undefined) ? '?lang='+setLang : ''}`, true);
@@ -26,7 +27,8 @@ export default class Input{
 			} else {
 				console.log("error translating");
 			}
-			that.submitButton.classList.remove('card__text-submit--loading');
+			document.querySelector('#loader').classList.remove('card--loading');
+			document.querySelector('#loader').classList.add('card--hidden');
 		};
 	}
 

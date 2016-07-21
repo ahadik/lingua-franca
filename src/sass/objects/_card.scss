@@ -61,17 +61,6 @@
 		width: 100px;
 		overflow: hidden;
 		outline: none;
-
-		&--loading {
-
-			.button__text {
-				display: none;
-			}
-
-			.icon__loader {
-				display: flex;
-			}
-		}
 	}
 
 	&__dropdown {
@@ -98,6 +87,18 @@
 	&--hidden {
 		opacity: 0;
 	}
+
+	&--loading {
+		.icon__loader {
+			display: flex;
+		}
+	}
+
+	&--tiny {
+		width: 100px;
+		height: 20px;
+	}
+
 }
 
 @keyframes spin {100% {transform: rotate(360deg);}}

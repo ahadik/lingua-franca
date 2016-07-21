@@ -37,7 +37,8 @@ window.onload = ()=>{
 	document.querySelector('#sidePanelHamburger').addEventListener('click', (event) => {
 		document.querySelector('#header').classList.toggle('header--open');
 
-		let callback = function(){
+		let callback = function(event){
+			event.preventDefault();
 			document.querySelector('.header--open').classList.remove('header--open');
 			document.querySelector('.icon__hamburger').classList.remove('icon__hamburger--open');
 			openWrapper.removeEventListener('click', callback, false);
