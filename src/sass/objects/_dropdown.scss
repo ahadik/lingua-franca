@@ -1,9 +1,19 @@
 .dropdown {
-	background: rgba(0, 0, 0, .5);
+	background-color: $dark-blue;
 	border: 0;
 	color: white;
 	height: 20px;
 	width: 120px;
+	border-radius: 0;
+	appearance: none;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 2px 6px;
+	width: 100px;
+	border-right: 6px solid $dark-blue;
+	background-image: url('../icons/dropdown.svg');
+	background-repeat: no-repeat;
+	background-position: center right;
 
 	.card__dropdown--detecting & {
 		display: none;
