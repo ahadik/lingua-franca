@@ -86,6 +86,9 @@
 
 	&--hidden {
 		opacity: 0;
+		height: 0px;
+		padding: 0;
+		margin: 0;
 	}
 
 	&--loading {
@@ -97,13 +100,6 @@
 	&--tiny {
 		width: 100px;
 		height: 20px;
-
-		&.card--hidden {
-			height: 0px;
-			padding: 0;
-			margin: 0;
-		}
-
 	}
 
 }
