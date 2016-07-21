@@ -70,13 +70,15 @@ export default class Data{
 		let createDataColumn = () => {
 			let columnWrapper = document.createElement('div');
 			columnWrapper.classList.add('table__column--1-sixth');
+			columnWrapper.classList.add('column__gradient-data');
+			columnWrapper.id = 'gradientDataColumn';
 			columnWrapper.innerHTML = '<div class="column__data-header" id="longerLangData">' +
-				'<span class="column__data-header--small column__data-header--content"><span class="numLangs column__data-header--numlangs"></span> longer</span>' +
-				'<span class="column__data-header--large column__data-header--content" id="percentLongerLangs"></span>' +
+				'<span class="column__data-header--small column__data-header--content"><span class="column__data-header--numlangs" id="longerNumLangs"></span> longer</span>' +
+				'<span class="column__data-header--small column__data-header--content" id="longerWordsPercent"></span>' +
 			'</div>' +
 			'<div class="column__data-header" id="shorterLangData">' +
-				'<span class="column__data-header--small column__data-header--content" id="percentLongerLangs"><span class="numLangs column__data-header--numlangs"></span> shorter</span>' +
-				'<span class="column__data-header--large column__data-header--content"></span>' +
+				'<span class="column__data-header--small column__data-header--content"><span class="column__data-header--numlangs" id="shorterNumLangs"></span> shorter</span>' +
+				'<span class="column__data-header--small column__data-header--content" id="shorterWordsPercent"></span>' +
 			'</div>';
 			return columnWrapper;
 		}
@@ -104,7 +106,7 @@ export default class Data{
 	renderData(){
 
 		let langData = document.querySelector('#dataLangElems');
-		let gradientColumn = document.querySelector('#gradientDataColumn');
+		let gradientColumn = document.querySelector('#gradientColumn');
 
 		langData.innerHTML = '';
 		langData.appendChild(gradientColumn);
@@ -129,17 +131,30 @@ export default class Data{
 			//shorter first
 			if (direction){
 				document.querySelector('#gradientDataColumn').classList.add('column__gradient-data--reverse');
-				document.querySelector('.column__data-header:last-of-type .column__data-header--large').innerHTML = `${Math.round(beforeCount/totalCount*100)}%`;
-				document.querySelector('.column__data-header:first-of-type .column__data-header--large').innerHTML = `${Math.round(afterCount/totalCount*100)}%`;
-				document.querySelector('.column__data-header:last-of-type .numLangs').innerHTML = beforeCount+' ';
-				document.querySelector('.column__data-header:first-of-type .numLangs').innerHTML = afterCount+' ';
+
+				document.querySelector('#longerLangData').classList.remove('column__gradient-data--first');
+				document.querySelector('#longerLangData').classList.add('column__gradient-data--last');
+				document.querySelector('#shorterLangData').classList.add('column__gradient-data--first');
+				document.querySelector('#shorterLangData').classList.remove('column__gradient-data--last');
+
+				document.querySelector('#shorterWordsPercent').innerHTML = `${Math.round(beforeCount/totalCount*100)}%`;
+				document.querySelector('#longerWordsPercent').innerHTML = `${Math.round(afterCount/totalCount*100)}%`;
+				document.querySelector('#shorterNumLangs').innerHTML = beforeCount+' ';
+				document.querySelector('#longerNumLangs').innerHTML = (afterCount-1)+' ';
+				
 			//longer first
 			}else{
 				document.querySelector('#gradientDataColumn').classList.remove('column__gradient-data--reverse');
-				document.querySelector('.column__data-header:first-of-type .column__data-header--large').innerHTML = `${Math.round(beforeCount/totalCount*100)}%`;
-				document.querySelector('.column__data-header:last-of-type .column__data-header--large').innerHTML = `${Math.round(afterCount/totalCount*100)}%`;
-				document.querySelector('.column__data-header:first-of-type .numLangs').innerHTML = beforeCount+' ';
-				document.querySelector('.column__data-header:last-of-type .numLangs').innerHTML = afterCount+' ';
+
+				document.querySelector('#longerLangData').classList.remove('column__gradient-data--last');
+				document.querySelector('#longerLangData').classList.add('column__gradient-data--first');
+				document.querySelector('#shorterLangData').classList.add('column__gradient-data--last');
+				document.querySelector('#shorterLangData').classList.remove('column__gradient-data--first');
+
+				document.querySelector('#longerWordsPercent').innerHTML = `${Math.round(beforeCount/totalCount*100)}%`;
+				document.querySelector('#shorterWordsPercent').innerHTML = `${Math.round(afterCount/totalCount*100)}%`;
+				document.querySelector('#longerNumLangs').innerHTML = beforeCount+' ';
+				document.querySelector('#shorterNumLangs').innerHTML = (afterCount-1)+' ';
 			}
 		}
 
