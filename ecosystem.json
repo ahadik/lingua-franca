@@ -28,7 +28,7 @@
       ref  : "origin/master",
       repo : "git@github.com:ahadik/lingua-franca.git",
       path : "/home/alexhadik/lingua-franca",
-      "post-deploy" : "sudo npm install pm2 -g && sudo npm install bower -g && sudo npm install gulp -g && npm install --unsafe-perm && gulp build && pm2 startOrRestart ecosystem.json --env production -i max"
+      "post-deploy" : "sudo npm install pm2 -g && sudo npm install bower -g && sudo npm install gulp -g && sudo npm install && gulp build && pm2 startOrRestart ecosystem.json --env production -i max"
     }
   }
 }
