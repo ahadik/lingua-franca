@@ -1,0 +1,34 @@
+{
+  /**
+   * Application configuration section
+   * http://pm2.keymetrics.io/docs/usage/application-declaration/
+   */
+  apps : [
+
+    // First application
+    {
+      name      : "Lingua Franca",
+      script    : "index.js",
+      env: {
+      },
+      env_production : {
+        NODE_ENV: "production"
+      }
+    }
+  ],
+
+  /**
+   * Deployment section
+   * http://pm2.keymetrics.io/docs/usage/deployment/
+   */
+  deploy : {
+    production : {
+      user : "alexhadik",
+      host : "104.197.217.183",
+      ref  : "origin/master",
+      repo : "git@github.com:ahadik/lingua-franca.git",
+      path : "/home/alexhadik/lingua-franca",
+      "post-deploy" : "sudo npm install pm2 -g && sudo npm install bower -g && sudo npm install gulp -g && npm install --unsafe-perm && gulp build && pm2 startOrRestart ecosystem.json --env production -i max"
+    }
+  }
+}
