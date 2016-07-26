@@ -22,7 +22,7 @@ var filepath = __dirname + "/tmp/out.json";
 module.exports = function(app, credentials) {
 	translator.install(credentials);
 	app.get('/', function(req, res){
-		res.render('pages/index', translator.getLanguages());
+		res.render('pages/index', {langList : translator.getLanguages(), defaultLangs : translator.getDefaultLanguages()});
 	});
 
 	app.post('/translate', function(req, res){

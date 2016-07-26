@@ -20,8 +20,8 @@
 						<input type="checkbox" class="checkbox__box" id="masterLangToggle">
 						<label for="masterLangToggle" class="checkbox__label checkbox__label--master"><span>Select all/none</span></label>
 					</li>
-					<% languages.forEach(function(language) {%>
-						<li class="sidebar__language checkbox"><input type="checkbox" id="<%= language.language %>" class="langCheckBox checkbox__box" checked><label for="<%= language.language %>" class="checkbox__label"><span><%= language.name %></span></label></li>
+					<% langList.languages.forEach(function(language) {%>
+						<li class="sidebar__language checkbox "><input type="checkbox" id="<%= language.language %>" class="langCheckBox checkbox__box" <% if (defaultLangs[language.language]) { %> checked <% } %>><label for="<%= language.language %>" class="checkbox__label"><span><%= language.name %></span></label></li>
 					<% }); %>
 				</ul>
 			</aside>
@@ -38,7 +38,7 @@
 					<span class="card__dropdown card__dropdown--onload" id="inputLanguage">
 						<select class="dropdown" id="inputLanguageSelector">
 							<option value="" disabled selected>Auto</option>
-							<% languages.forEach(function(language) { %>
+							<% langList.languages.forEach(function(language) { %>
 								<option value="<%= language.language %>"><%= language.name %></option>
 							<% }); %>
 						</select>
