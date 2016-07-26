@@ -1,5 +1,6 @@
 var request = require('request'); 
 var rootURL = 'https://www.googleapis.com/language/translate/v2';
+var defaultLanguages = require('./defaultLangs.js');
 var languages = null;
 var credentials = null;
 
@@ -56,5 +57,9 @@ module.exports = {
 
 	getLanguages : () => {
 		return languages.data;
+	},
+
+	getDefaultLanguages : () => {
+		return defaultLanguages;
 	}
 }
