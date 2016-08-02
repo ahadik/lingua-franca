@@ -5,36 +5,37 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
-		<section id="introModal" class="modal modal--show">
-			<article class="modal__window">
-				<div class="icon__hamburger icon__hamburger icon__hamburger--dark modal__x modal__close icon__hamburger--slim icon__hamburger--open">
-					<div class="bar"></div>
-					<div class="bar"></div>
-					<div class="bar"></div>
-				</div>
-				<h2 class="modal__title">Hello! Hola! 你好!</h2>
-				<p class="modal__copy">Lingua Franca is a tool to help designers and developers evaluate the text content of their designs. Use the translation data from Lingua Franca to adjust your UI so that it accomdates a full range of languages.</p>
-				<h2 class="modal__title">How to Use Lingua:</h2>
-				<p class="modal__copy">Enter a phrase to see the comparative length in different languages.</p>
-				<p class="modal__copy">The table shows the length of your origin phrase relative to the length of other languages. The table also displays the proportion of languages both longer and shorter than the detected input language.</p>
-				<p class="modal__copy">Choose which languages you want to test in the settings panel. By default the 30 most common languages are selected.</p>
-				<section class="column modal__content">
-					<div class="column--2-sixth column--modal">
-						<figure class="img__modal-figure img--full_width img--config_1"></figure>
-						<p class="modal__copy">Your default language is the longest – this term works well.</p>
+		<div id="introModal"  class="modal__wrapper modal--show">
+			<section class="modal">
+				<article class="modal__window">
+					<div class="icon__hamburger icon__hamburger icon__hamburger--dark modal__x modal__close icon__hamburger--slim icon__hamburger--open">
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
 					</div>
-					<div class="column--2-sixth column--modal">
-						<figure class="img__modal-figure img--full_width img--config_2"></figure>
-						<p class="modal__copy">A couple languages are longer than your default – decide how you might want to handle these edge cases.</p>
-					</div>
-					<div class="column--2-sixth column--modal">
-						<figure class="img__modal-figure img--full_width img--config_3"></figure>
-						<p class="modal__copy">Most other languages are longer – take a look at the longer strings to see if you need to make structural changes to your UI to accomodate!</p>
-					</div>
-				</section>
-				<button class="button modal__button modal__close">Let's go!</button>
-			</article>
-		</section>
+					<h2 class="modal__title">Hello! Hola! 你好!</h2>
+					<p class="modal__copy">Lingua Franca is a tool to help designers and developers evaluate how well their designs will translate to different languages.</p>
+					<h2 class="modal__title">How to Use Lingua:</h2>
+					<p class="modal__copy">Enter a phrase to see the comparative length in different languages.</p>
+					<p class="modal__copy">The table shows the length of your origin phrase relative to the length of other languages. The table also displays the proportion of languages both longer and shorter than the detected input language.</p>
+					<section class="column modal__content">
+						<div class="column--2-sixth column--modal">
+							<figure class="img__modal-figure img--full_width img--config_1"></figure>
+							<p class="modal__copy">Your default language is the longest – this term works well.</p>
+						</div>
+						<div class="column--2-sixth column--modal">
+							<figure class="img__modal-figure img--full_width img--config_2"></figure>
+							<p class="modal__copy">A couple languages are longer than your default – decide how you might want to handle these edge cases.</p>
+						</div>
+						<div class="column--2-sixth column--modal">
+							<figure class="img__modal-figure img--full_width img--config_3"></figure>
+							<p class="modal__copy">Most other languages are longer – take a look at the longer strings to see if you need to make structural changes to your UI to accomodate!</p>
+						</div>
+					</section>
+					<button class="button modal__button modal__close">Let's go!</button>
+				</article>
+			</section>
+		</div>
 		<header class="header" id="header">
 			<h1 class="header__title">Lingua Franca</h1>
 			<div id="sidePanelHamburger" class="header__menu icon__hamburger icon__hamburger--toggle">
