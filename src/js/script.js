@@ -104,5 +104,7 @@ document.querySelector('#sidebarIntroModal').addEventListener('click', (event) =
 
 if (Cookie.readCookie('languages')){
 	introModal.close();
+}else{
+	Cookie.createCookie('languages',JSON.stringify(sidebar.savedLangs));
 }
 
