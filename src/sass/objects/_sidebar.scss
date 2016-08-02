@@ -6,10 +6,11 @@
 
 	&__call-to-action {
 		color : #BEBEBE;
+		cursor: pointer;
 	}
 
 	&__header {
-		margin-top: 36px;
+		margin-top: ($default--padding * 2);
 	}
 
 	&__languages {

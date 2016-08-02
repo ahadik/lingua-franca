@@ -50,17 +50,8 @@
 
 	&__text-submit {
 		position: relative;
-		background-color: $dark-blue;
-		border: none;
-		font-size: 1em;
-		color: white;
-		padding: 12px;
 		height: 3.25em;
-		cursor: pointer;
-		transition: all 0.25s;
 		width: 100px;
-		overflow: hidden;
-		outline: none;
 	}
 
 	&__dropdown {

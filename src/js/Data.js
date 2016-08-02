@@ -42,7 +42,7 @@ export default class Data{
 
 		let createLangColumn = (lang, language) => {
 			let translationLang = document.createElement('div');
-			translationLang.classList.add('table__column--2-sixth');
+			translationLang.classList.add('column--2-sixth');
 			translationLang.classList.add('languageColumn');
 			translationLang.appendChild(createTextSpan(language));
 			return translationLang;
@@ -50,26 +50,15 @@ export default class Data{
 
 		let createTranslationColumn = (lang, translatedText) => {
 			let translationString = document.createElement('div');
-			translationString.classList.add('table__column--3-sixth');
+			translationString.classList.add('column--3-sixth');
 			translationString.classList.add('textColumn');
 			translationString.appendChild(createTextSpan(translatedText));
 			return translationString;
 		}
 
-		/*
-			<div class="column__data-header" id="longerLangData">
-				<span class="column__data-header--small column__data-header--content"><span class="numLangs column__data-header--numlangs"></span> longer</span>
-				<span class="column__data-header--large column__data-header--content" id="percentLongerLangs"></span>
-			</div>
-			<div class="column__data-header" id="shorterLangData">
-				<span class="column__data-header--small column__data-header--content" id="percentLongerLangs"><span class="numLangs column__data-header--numlangs"></span> shorter</span>
-				<span class="column__data-header--large column__data-header--content"></span>
-			</div>
-		*/
-
 		let createDataColumn = () => {
 			let columnWrapper = document.createElement('div');
-			columnWrapper.classList.add('table__column--1-sixth');
+			columnWrapper.classList.add('column--1-sixth');
 			columnWrapper.classList.add('column__gradient-data');
 			columnWrapper.id = 'gradientDataColumn';
 			columnWrapper.innerHTML = '<div class="column__data-header" id="longerLangData">' +

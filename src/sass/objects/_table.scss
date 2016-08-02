@@ -7,12 +7,6 @@
 
 	&__column {
 
-		@for $i from 1 through 5 {
-			&--#{$i}-sixth {
-				width: unquote('#{($i / 6 * 100)}%');
-			}
-		}
-
 		&--gradient {
 			position: absolute;
 			top: 1.5em;
@@ -60,58 +54,5 @@
 	&--header {
 		text-transform: uppercase;
 		cursor: default;
-	}
-}
-
-.column {
-	&__gradient-data {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		height: 4em;
-		margin-top: -1.5em;
-
-		&--reverse {
-			flex-direction: column-reverse;
-		}
-
-		&--first {
-			align-items: flex-end;
-		}
-
-		&--last {
-			margin-top: calc(1em + 5px);
-			align-items: flex-start;
-		}
-	}
-
-	&__data-header {
-		display: flex;
-		justify-content: space-between;
-		color: white;
-
-		&--small {
-			font-weight: 500;
-			font-size: 1em;
-		}
-
-		&--content {
-			display: flex;
-			flex-direction: row;
-			align-items: flex-end;
-			flex-wrap: wrap;
-
-			&:first-of-type {
-				margin-left: 5px;
-			}
-
-			&:last-of-type {
-				margin-right: 5px;
-			}
-		}
-
-		&--numlangs {
-			margin-right: 6px;
-		}
 	}
 }

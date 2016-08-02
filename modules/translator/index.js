@@ -49,6 +49,7 @@ module.exports = {
 				languages = JSON.parse(body);
 				console.log("Ready to translate!");
 			}else{
+				languages = [];
 				console.log(error);
 				return false;
 			}
