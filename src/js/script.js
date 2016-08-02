@@ -8,7 +8,7 @@ var textInput;
 var translationData;
 var sidebar;
 
-sidebar = new Sidebar(document.querySelector('#mainSidebar'));
+sidebar = new Sidebar(document.querySelector('#header'));
 translationData = new Data();
 
 let requestCallback = (data)=>{
@@ -19,13 +19,6 @@ let requestCallback = (data)=>{
 
 textInput = new Input(document.querySelector('#phraseForm'), requestCallback);
 
-let hamburgers = document.querySelectorAll('.icon__hamburger--toggle');
-[...hamburgers].forEach((hamburger) => {
-	hamburger.addEventListener('click', ()=> {
-		hamburger.classList.toggle('icon__hamburger--open');
-	}, true);
-});
-
 //Handle re-translation for selection of new language after initial translation
 let langDropdown = document.querySelector('#inputLanguageSelector');
 langDropdown.addEventListener('change', () => {
@@ -34,21 +27,8 @@ langDropdown.addEventListener('change', () => {
 	}
 });
 
-document.querySelector('#sidePanelHamburger').addEventListener('click', (event) => {
-	document.querySelector('#header').classList.toggle('header--open');
-	let callback = function(event){
-		event.preventDefault();
-		document.querySelector('.header--open').classList.remove('header--open');
-		document.querySelector('#sidePanelHamburger').classList.remove('icon__hamburger--open');
-		openWrapper.removeEventListener('click', callback, false);
-		document.querySelector('#header').scrollTop = 0;
-
-	}
-	if (document.querySelector('.header').classList.contains('header--open')){
-		var openWrapper = document.querySelector('.header--open + .content-wrapper');
-		openWrapper.addEventListener('click', callback, false);
-	}
-	
+document.querySelector('.content-wrapper').addEventListener('click', (event) => {
+	sidebar.close();
 });
 
 let checkBoxes = document.querySelectorAll('.langCheckBox');

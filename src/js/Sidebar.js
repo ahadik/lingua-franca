@@ -22,6 +22,25 @@ export default class Sidebar{
 		}
 
 		this.DOMElement = sidebarDOM;
+		let toggle = this.DOMElement.querySelector('.icon__hamburger--toggle');
+		toggle.addEventListener('click', (event) => {
+			if(toggle.classList.contains('icon__hamburger--open')){
+				this.close();
+			}else{
+				this.open();
+			}
+		});
+
+	}
+
+	close(){
+		this.DOMElement.classList.remove('header--open');
+		this.DOMElement.querySelector('.icon__hamburger--toggle').classList.remove('icon__hamburger--open');
+	}
+
+	open(){
+		this.DOMElement.classList.add('header--open');
+		this.DOMElement.querySelector('.icon__hamburger--toggle').classList.add('icon__hamburger--open');
 	}
 
 	addLanguage(language){
