@@ -1,12 +1,13 @@
 export default class Input{
-	constructor(textField, submitButton, callback){
-		this.textField = textField;
-		this.submitButton = submitButton;
-		this.submitButton.addEventListener('click', (e) => {
+	constructor(form, callback){
+
+		this.textField = form.querySelector('.phraseInput');
+		this.submitButton = form.querySelector('.phraseSubmit');
+		form.addEventListener('submit', (event) => {
+			event.preventDefault();
 			let inputLangStatus = document.querySelector('#inputLanguage')
 			inputLangStatus.classList.remove('card__dropdown--onload');
 			inputLangStatus.classList.add('card__dropdown--detecting');
-			e.preventDefault();
 			this.triggerRequest(callback, document.querySelector('#inputLanguageSelector').value);
 		});
 	}
