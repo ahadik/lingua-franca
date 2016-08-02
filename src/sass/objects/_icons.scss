@@ -67,6 +67,32 @@
 			}
 		}
 
+		&--dark {
+			.bar {
+				background-color: black;
+			}
+		}
+
+		&--slim {
+			.bar {
+				height: 5%;
+			}
+		}
+
+		#{&}--open#{&}--slim {
+			.bar {
+				&:first-of-type {
+					transform: rotate(45deg);
+					top: 40%;
+				}
+
+				&:last-of-type {
+					transform: rotate(-45deg) translate(-30%, 600%);
+					bottom: 100%;
+				}
+			}
+		}
+
 		&--open {
 			.bar {
 

@@ -1,0 +1,14 @@
+.button {
+	background-color: $dark-blue;
+	border: none;
+	font-size: 1em;
+	color: white;
+	padding: 12px;
+	cursor: pointer;
+	overflow: hidden;
+	outline: none;
+
+	&--hidden {
+		display: none;
+	}
+}

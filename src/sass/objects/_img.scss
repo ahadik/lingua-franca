@@ -1,0 +1,27 @@
+.img {
+
+	&--config_1 {
+		@include image('config_1', 'png');
+	}
+
+	&--config_2 {
+		@include image('config_2', 'png');
+	}
+
+	&--config_3 {
+		@include image('config_3', 'png');
+	}
+
+	&--full_width {
+		width: 100%;
+	}
+
+	&__modal-figure {
+		margin: 0;
+		background-size: contain;
+		background-repeat: no-repeat;
+		padding-top: 40%;
+		padding-bottom: 40%;
+		margin-bottom: $default--padding;
+	}
+}

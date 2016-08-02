@@ -16,7 +16,7 @@ export default class Sidebar{
 				document.querySelector(`#${lang}`).checked = true;
 			});
 		}else{
-			[...document.querySelectorAll('.langCheckBox')].forEach((checkbox) => {
+			[...document.querySelectorAll('.langCheckBox:checked')].forEach((checkbox) => {
 				this.savedLangs.push(checkbox.id);
 			});
 		}

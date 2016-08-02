@@ -1,0 +1,10 @@
+@mixin image($fileName, $extension) {
+	background-image: url('../imgs/#{$fileName}.#{$extension}');
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+		    background-image: url('../imgs/#{$fileName}@2x.#{$extension}');
+	}
+
+	@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 350dpi) { 
+		    background-image: url('../imgs/#{$fileName}@3x.#{$extension}');
+	}
+}
