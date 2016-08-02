@@ -17,7 +17,7 @@ let requestCallback = (data)=>{
 	translationData.renderData();
 }
 
-textInput = new Input(document.querySelector('#translationTextField'), document.querySelector('#translationTextSubmit'), requestCallback);
+textInput = new Input(document.querySelector('#phraseForm'), requestCallback);
 
 let hamburgers = document.querySelectorAll('.icon__hamburger--toggle');
 [...hamburgers].forEach((hamburger) => {

@@ -59,12 +59,12 @@
 		<div class="content-wrapper">
 			<section class="content-wrapper__scroll">
 				<article class="card card--transparent">
-					<div class="card__text-entry">
-						<input placeholder="Origin Phrase" type="text" id="translationTextField" class="card__text-input"/>
-						<button action="submit" id="translationTextSubmit" class="button card__text-submit">
+					<form id="phraseForm" class="card__text-entry" action>
+						<input placeholder="Origin Phrase" type="text" id="translationTextField" class="card__text-input phraseInput"/>
+						<button type="submit" form="phraseForm" id="translationTextSubmit" class="button phraseSubmit card__text-submit">
 							<span class="button__text">Translate</span>
 						</button>
-					</div>
+					</form>
 					<span class="card__dropdown card__dropdown--onload" id="inputLanguage">
 						<select class="dropdown" id="inputLanguageSelector">
 							<option value="" disabled selected>Auto</option>
